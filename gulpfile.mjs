@@ -26,6 +26,7 @@ const path = {
     clear: './Project/build/*'
 }
 
+import fs from 'fs';
 // Gulp
 import gulp from 'gulp';
 // сервер для работы и автоматического обновления страниц
@@ -121,6 +122,24 @@ gulp.task('fonts:build', (f) => {
         .pipe(gulp.dest(path.build.fonts));
 });
 
+// Создание файла с названием шрифтов
+gulp.task('creatFonts:build', (cd) => {
+    fs.writeFile('Project/main/style/_fonts.scss', '', cd);
+
+    return fs.readdir('Project/build/fonts/', (err, fonts) => {
+        let cFontName;
+
+        fonts.forEach((font, index) => {
+            let fontName = font.split('.');
+            fontName = fontName[0];
+            if (cFontName !== fontName) {
+                fs.appendFile('Project/main/style/_fonts.scss', '@include font("' + fontName + '", "' + fontName + '", "400", "normal");', cd);
+            }
+            cFontName = fontName;
+        });
+    });
+});
+
 // обработка картинок
 gulp.task('image:build', () => {
     return gulp.src(path.main.img)
@@ -168,5 +187,6 @@ gulp.task('watch', () => {
 // задача по умолчанию
 gulp.task('default', gulp.series(
     'build',
+    'creatFonts:build',
     gulp.parallel('browser-sync','watch')
 ));
