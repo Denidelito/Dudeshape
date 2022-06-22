@@ -1,4 +1,6 @@
-const src = {
+'use strict';
+
+const path = {
     build: {
         path: './Project/build',
         html: 'Project/build/',
@@ -12,14 +14,14 @@ const src = {
         js: 'Project/main/js/main.js',
         scss: 'Project/main/style/main.scss',
         img: 'Project/main/img/**/*.*',
-        fonts: 'Project/main/fonts/**/*.*'
+        fonts: 'Project/main/fonts/**/*.ttf'
     },
     watch: {
         html: 'Project/main/**/*.html',
         js: 'Project/main/js/**/*.js',
         scss: 'Project/main/style/**/*.scss',
         img: 'Project/main/img/**/*.*',
-        fonts: 'Project/main/fonts/**/*.*',
+        fonts: 'Project/main/fonts/**/*.ttf',
     },
     clear: './Project/build/*'
 }
@@ -42,6 +44,9 @@ import gifsicle from 'imagemin-gifsicle';
 import mozjpeg from 'imagemin-mozjpeg';
 import optipng from 'imagemin-optipng';
 import svgo from 'imagemin-svgo';
+import ttf2woff from 'gulp-ttf2woff';
+import ttf2woff2 from 'gulp-ttf2woff2';
+import ttf2eot from 'gulp-ttf2eot';
 import notify from 'gulp-notify';
 
 const browserSync = sync.create();
@@ -51,7 +56,7 @@ const sass = gulpSass(compilerSass);
 gulp.task('browser-sync', () => {
     browserSync.init({
         server: {
-            baseDir: src.build.path
+            baseDir: path.build.path
         },
         notify: false
     })
@@ -59,15 +64,15 @@ gulp.task('browser-sync', () => {
 
 // сбор html
 gulp.task('html:build', () => {
-    return gulp.src(src.main.html) // выбор всех html файлов по указанному пути
+    return gulp.src(path.main.html) // выбор всех html файлов по указанному пути
         .pipe(rigger()) // импорт вложений
-        .pipe(gulp.dest(src.build.html)) // выкладывание готовых файлов
+        .pipe(gulp.dest(path.build.html)) // выкладывание готовых файлов
         .pipe(browserSync.reload({ stream: true })) // перезагрузка сервера
 });
 
 // сбор стилей
 gulp.task('css:build', () => {
-    return gulp.src(src.main.scss) // получим main.scss
+    return gulp.src(path.main.scss) // получим main.scss
         .pipe(sass({outputStyle: 'expanded'}).on('error', notify.onError())) // scss -> css
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 8 versions'],
@@ -81,45 +86,56 @@ gulp.task('css:build', () => {
                 'Safari >= 6',
             ],
         })) // добавим префиксы
-        .pipe(gulp.dest(src.build.css))
+        .pipe(gulp.dest(path.build.css))
         .pipe(rename({suffix: '.min'}))
         .pipe(cleanCss()) // минимизируем CSS
-        .pipe(gulp.dest(src.build.css))
+        .pipe(gulp.dest(path.build.css))
         .pipe(browserSync.stream()) // перезагрузим сервер
 });
 
 // сбор js
 gulp.task('js:build', () => {
-    return gulp.src(src.main.js) // получим файл main.js
+    return gulp.src(path.main.js) // получим файл main.js
         .pipe(rigger()) // импортируем все указанные файлы в main.js
-        .pipe(gulp.dest(src.build.js))
+        .pipe(gulp.dest(path.build.js))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify.default()) // минимизируем js
-        .pipe(gulp.dest(src.build.js)) // положим готовый файл
+        .pipe(gulp.dest(path.build.js)) // положим готовый файл
         .pipe(browserSync.reload({ stream: true })) // перезагрузим сервер
 });
 
+
 // перенос шрифтов
-gulp.task('fonts:build', () => {
-    return gulp.src(src.main.fonts)
-        .pipe(gulp.dest(src.build.fonts))
+gulp.task('fonts:build', (f) => {
+    f();
+    gulp.src([path.main.fonts])
+        .pipe(ttf2woff())
+        .pipe(gulp.dest(path.build.fonts));
+
+    gulp.src([path.main.fonts])
+        .pipe(ttf2woff2())
+        .pipe(gulp.dest(path.build.fonts));
+
+    gulp.src([path.main.fonts])
+        .pipe(ttf2eot())
+        .pipe(gulp.dest(path.build.fonts));
 });
 
 // обработка картинок
 gulp.task('image:build', () => {
-    return gulp.src(src.main.img)
+    return gulp.src(path.main.img)
         .pipe(imagemin([
             gifsicle({ interlaced: true }),
             mozjpeg({ quality: 75, progressive: true }),
             optipng({ optimizationLevel: 5 }),
             svgo()
         ]))
-        .pipe(gulp.dest(src.build.img))
+        .pipe(gulp.dest(path.build.img))
 });
 
 // удаление каталога build
 gulp.task('clean:build', () => {
-    return del(src.clear);
+    return del(path.clear);
 });
 
 // очистка кэша
@@ -142,11 +158,11 @@ gulp.task('build',
 
 // запуск задач при изменении файлов
 gulp.task('watch', () => {
-    gulp.watch(src.watch.html, gulp.series('html:build'));
-    gulp.watch(src.watch.scss, gulp.series('css:build'));
-    gulp.watch(src.watch.js, gulp.series('js:build'));
-    gulp.watch(src.watch.img, gulp.series('image:build'));
-    gulp.watch(src.watch.fonts, gulp.series('fonts:build'));
+    gulp.watch(path.watch.html, gulp.series('html:build'));
+    gulp.watch(path.watch.scss, gulp.series('css:build'));
+    gulp.watch(path.watch.js, gulp.series('js:build'));
+    gulp.watch(path.watch.img, gulp.series('image:build'));
+    gulp.watch(path.watch.fonts, gulp.series('fonts:build'));
 });
 
 // задача по умолчанию
