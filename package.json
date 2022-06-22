@@ -24,6 +24,7 @@
     "gulp-rename": "~2.0.0",
     "gulp-rigger": "~0.5.8",
     "gulp-sass": "~5.0.0",
+    "gulp-svg-sprite": "^1.5.0",
     "gulp-ttf2eot": "^1.1.2",
     "gulp-ttf2woff": "^1.1.1",
     "gulp-ttf2woff2": "^4.0.1",
@@ -32,6 +33,7 @@
     "imagemin-mozjpeg": "~9.0.0",
     "imagemin-optipng": "~8.0.0",
     "imagemin-svgo": "~10.0.0",
-    "sass": "~1.43.5"
+    "sass": "~1.43.5",
+    "svgSprite": "^1.2.0"
   }
 }

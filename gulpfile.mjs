@@ -7,6 +7,7 @@ const path = {
         js: 'Project/build/js/',
         css: 'Project/build/css/',
         img: 'Project/build/img/',
+        svg: 'Project/build/img/',
         fonts: 'Project/build/fonts/'
     },
     main: {
@@ -14,6 +15,7 @@ const path = {
         js: 'Project/main/js/main.js',
         scss: 'Project/main/style/main.scss',
         img: 'Project/main/img/**/*.*',
+        svg: 'Project/main/icon/**/*.svg',
         fonts: 'Project/main/fonts/**/*.ttf'
     },
     watch: {
@@ -21,6 +23,7 @@ const path = {
         js: 'Project/main/js/**/*.js',
         scss: 'Project/main/style/**/*.scss',
         img: 'Project/main/img/**/*.*',
+        svg: 'Project/main/icon/**/*.svg',
         fonts: 'Project/main/fonts/**/*.ttf',
     },
     clear: './Project/build/*'
@@ -40,11 +43,11 @@ import uglify from 'gulp-uglify-es'; // модуль для минимизаци
 import cache from 'gulp-cache'; // модуль для кэширования
 import del from 'del'; // плагин для удаления файлов и каталогов
 import rename from 'gulp-rename';
-import imagemin from 'gulp-imagemin'; // плагин для сжатия PNG, JPEG, GIF и SVG изображений
+import imagemin from 'gulp-imagemin'; // плагин для сжатия PNG, JPEG, GIF изображений
 import gifsicle from 'imagemin-gifsicle';
 import mozjpeg from 'imagemin-mozjpeg';
 import optipng from 'imagemin-optipng';
-import svgo from 'imagemin-svgo';
+import svgSprite from 'gulp-svg-sprite';//svg sprite
 import ttf2woff from 'gulp-ttf2woff';
 import ttf2woff2 from 'gulp-ttf2woff2';
 import ttf2eot from 'gulp-ttf2eot';
@@ -146,10 +149,23 @@ gulp.task('image:build', () => {
         .pipe(imagemin([
             gifsicle({ interlaced: true }),
             mozjpeg({ quality: 75, progressive: true }),
-            optipng({ optimizationLevel: 5 }),
-            svgo()
+            optipng({ optimizationLevel: 5 })
         ]))
         .pipe(gulp.dest(path.build.img))
+});
+
+// обработка svg
+gulp.task('svg:build', (f) => {
+    return gulp.src(path.main.svg)
+        .pipe(svgSprite({
+                mode: {
+                    stack: {
+                        sprite: "../sprite.svg"  //sprite file name
+                    }
+                },
+            }
+        ))
+        .pipe(gulp.dest(path.build.svg));
 });
 
 // удаление каталога build
@@ -170,7 +186,8 @@ gulp.task('build',
             'css:build',
             'js:build',
             'fonts:build',
-            'image:build'
+            'image:build',
+            'svg:build'
         )
     )
 );
@@ -181,6 +198,7 @@ gulp.task('watch', () => {
     gulp.watch(path.watch.scss, gulp.series('css:build'));
     gulp.watch(path.watch.js, gulp.series('js:build'));
     gulp.watch(path.watch.img, gulp.series('image:build'));
+    gulp.watch(path.watch.svg, gulp.series('svg:build'));
     gulp.watch(path.watch.fonts, gulp.series('fonts:build'));
 });
 
