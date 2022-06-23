@@ -76,6 +76,10 @@ button {
   background-color: transparent;
 }
 
+address {
+  font-style: normal;
+}
+
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -1684,6 +1688,10 @@ button {
   background-color: transparent;
 }
 
+address {
+  font-style: normal;
+}
+
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -2821,15 +2829,307 @@ button {
 }
 
 @font-face {
-  font-family: "pt-root-ui-bold";
+  font-family: "RedHatDisplay-Bold";
   font-display: swap;
-  src: url("../fonts/pt-root-ui-bold.woff") format("woff"), url("../fonts/pt-root-ui-bold.woff2") format("woff2"), url("../fonts/pt-root-ui-bold.eot") format("eot"), url("../fonts/pt-root-ui-bold.ttf") format("ttf");
+  src: url("../fonts/RedHatDisplay-Bold.woff") format("woff"), url("../fonts/RedHatDisplay-Bold.woff2") format("woff2"), url("../fonts/RedHatDisplay-Bold.eot") format("eot"), url("../fonts/RedHatDisplay-Bold.ttf") format("ttf");
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: "RedHatDisplay-BoldItalic";
+  font-display: swap;
+  src: url("../fonts/RedHatDisplay-BoldItalic.woff") format("woff"), url("../fonts/RedHatDisplay-BoldItalic.woff2") format("woff2"), url("../fonts/RedHatDisplay-BoldItalic.eot") format("eot"), url("../fonts/RedHatDisplay-BoldItalic.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RedHatDisplay-Light";
+  font-display: swap;
+  src: url("../fonts/RedHatDisplay-Light.woff") format("woff"), url("../fonts/RedHatDisplay-Light.woff2") format("woff2"), url("../fonts/RedHatDisplay-Light.eot") format("eot"), url("../fonts/RedHatDisplay-Light.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+/* Стили текста */
+.text:last-child {
+  margin-bottom: 0;
+}
+.text + .text, .text + .btn {
+  margin-top: 10px;
+}
+.text-xl {
+  font-size: 22px;
+  line-height: 30px;
+}
+@media (max-width: 719px) {
+  .text-xl {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+.text-l {
+  font-size: 18px;
+  line-height: 32px !important;
+}
+@media (max-width: 719px) {
+  .text-l {
+    font-size: 16px;
+    line-height: 14px;
+  }
+}
+.text-m {
+  font-size: 16px;
+  line-height: 24px;
+}
+@media (max-width: 719px) {
+  .text-m {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+.text-s {
+  font-size: 14px;
+  line-height: 20px;
+}
+@media (max-width: 719px) {
+  .text-s {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+.text-xs {
+  font-size: 12px;
+  line-height: 16px;
+}
+@media (max-width: 719px) {
+  .text-xs {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+@media screen and (max-width: 719px) {
+  .text-xs-left {
+    text-align: left !important;
+  }
+  .text-xs-center {
+    text-align: center;
+  }
+  .text-xs-right {
+    text-align: right !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "RedHatDisplay-Medium", sans-serif !important;
+  font-weight: bold;
+}
+
+h1,
+.h1 {
+  font-size: 38px;
+  line-height: 50px;
+}
+@media (max-width: 719px) {
+  h1,
+.h1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 30px;
+  line-height: 40px;
+}
+@media (max-width: 719px) {
+  h2,
+.h2 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 22px;
+  line-height: 30px;
+}
+@media (max-width: 719px) {
+  h3,
+.h3 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 18px;
+  line-height: 26px;
+}
+@media (max-width: 719px) {
+  h4,
+.h4 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 20px;
+  line-height: 24px;
+}
+@media (max-width: 719px) {
+  h5,
+.h5 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+h6,
+.h6 {
+  font-size: 14px;
+  line-height: 20px;
+}
+@media (max-width: 719px) {
+  h6,
+.h6 {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.h7 {
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.list-social {
+  line-height: 0;
+}
+.list-social > li, .list-social a, .list-social svg {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+}
+.list-social li {
+  margin-right: 20px;
+}
+.list-social li:last-child {
+  margin-right: 0;
+}
+
+.header {
+  background-color: #F9F6F5;
+}
+.header__logo {
+  font-size: 24px;
+  line-height: 30px;
+  font-family: "RedHatDisplay-BoldItalic", sans-serif;
+  color: #222222;
+}
+.header__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px 0 60px 0;
+}
+.header__links li {
+  display: inline-block;
+  margin: 0 20px;
+}
+.header__icons {
+  line-height: 0;
+}
+.header__icons > li, .header__icons a, .header__icons svg {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+.header__icons li {
+  margin: 0 12px;
+}
+@media only screen and (max-width: 719px) {
+  .header__nav {
+    padding: 20px 0 30px 0;
+  }
+  .header__links {
+    display: none;
+  }
+}
+
+.footer {
+  background-color: #FAFAFA;
+  padding: 50px 0;
+}
+.footer__logo {
+  font-family: "RedHatDisplay-BoldItalic", sans-serif;
+  font-size: 40px;
+  line-height: 50px;
+  color: #222222;
+}
+.footer__nav ul {
+  padding-left: 0;
+  list-style: none;
+}
+.footer__nav ul li {
+  margin-bottom: 20px;
+}
+.footer__nav ul li:last-child {
+  margin-bottom: 0;
+}
+
+body {
+  font-family: "RedHatDisplay-Regular", sans-serif;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .container {
   width: 100%;
   max-width: 1280px;
   padding: 0 20px;
   margin: auto;
+}
+
+.link {
+  font-family: "RedHatDisplay-Regular", sans-serif;
+  text-decoration: none;
+  color: #222222;
 }

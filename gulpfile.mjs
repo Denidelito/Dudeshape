@@ -135,7 +135,7 @@ gulp.task('fonts:build', (f) => {
 
 // Создание файла с названием шрифтов
 gulp.task('creatFonts:build', (cd) => {
-    fs.writeFile('Project/main/style/_fonts.scss', '', cd);
+    fs.writeFile('Project/main/style/utils/_fonts.scss', '', cd);
 
     return fs.readdir('Project/build/fonts/', (err, fonts) => {
         let cFontName;
@@ -144,7 +144,7 @@ gulp.task('creatFonts:build', (cd) => {
             let fontName = font.split('.');
             fontName = fontName[0];
             if (cFontName !== fontName) {
-                fs.appendFile('Project/main/style/_fonts.scss', '@include font("' + fontName + '", "' + fontName + '", "400", "normal");', cd);
+                fs.appendFile('Project/main/style/utils/_fonts.scss', '@include font("' + fontName + '", "' + fontName + '", "400", "normal");', cd);
             }
             cFontName = fontName;
         });

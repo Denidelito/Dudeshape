@@ -1,0 +1,87 @@
+/* Стили текста */
+.text {
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&+&,
+	&+.btn {
+		margin-top: 10px;
+	}
+
+	&-xl {
+		font-size: 22px;
+		line-height: 30px;
+
+		@media (max-width: $xs-max) {
+			font-size: 18px;
+			line-height: 26px;
+		}
+	}
+
+	&-l {
+		font-size: 18px;
+		line-height: 32px!important;
+
+		@media (max-width: $xs-max) {
+			font-size: 16px;
+			line-height: 14px;
+		}
+	}
+
+	&-m {
+		font-size: 16px;
+		line-height: 24px;
+
+		@media (max-width: $xs-max) {
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+
+	&-s {
+		font-size: 14px;
+		line-height: 20px;
+
+		@media (max-width: $xs-max) {
+			font-size: 12px;
+			line-height: 16px;
+		}
+	}
+
+	&-xs {
+		font-size: 12px;
+		line-height: 16px;
+
+		@media (max-width: $xs-max) {
+			font-size: 10px;
+			line-height: 14px;
+		}
+	}
+
+	&-nowrap {
+		white-space: nowrap;
+	}
+
+	&-center {
+		text-align: center;
+	}
+
+	&-right {
+		text-align: right;
+	}
+
+	@media screen and (max-width: $xs-max) {
+		&-xs-left {
+			text-align: left !important;
+		}
+
+		&-xs-center {
+			text-align: center;
+		}
+
+		&-xs-right {
+			text-align: right !important;
+		}
+	}
+}
