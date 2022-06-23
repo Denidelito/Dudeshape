@@ -11,13 +11,14 @@ h6,
 .h5,
 .h6 {
     font-family: $Medium !important;
-    font-weight: bold;
+    font-style: normal;
+    font-weight: 500;
 }
 
 h1,
 .h1 {
-    font-size: 38px;
-    line-height: 50px;
+    font-size: 56px;
+    line-height: 70px;
 
     @media (max-width: $xs-max) {
         font-size: 30px;

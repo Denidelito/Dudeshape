@@ -26,6 +26,7 @@ li,
 figure,
 figcaption,
 blockquote,
+hr,
 dl,
 dd {
     margin: 0;
@@ -55,10 +56,6 @@ img {
     display: block;
 }
 
-/* Указываем понятную периодичность в потоке данных у article*/
-article>*+* {
-    margin-top: 1em;
-}
 
 /* Наследуем шрифты для инпутов и кнопок */
 input,
@@ -76,6 +73,7 @@ button {
 address {
     font-style: normal;
 }
+
 
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {

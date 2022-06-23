@@ -1,0 +1,24 @@
+.form {
+  &-search {
+    max-width: 326px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 8px;
+  }
+}
+
+input  {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 6px 8px;
+  border: 0;
+
+  &:focus-visible {
+    outline: none;
+  }
+  &::placeholder {
+    color: #999999;
+  }
+}

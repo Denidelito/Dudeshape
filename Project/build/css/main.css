@@ -28,6 +28,7 @@ li,
 figure,
 figcaption,
 blockquote,
+hr,
 dl,
 dd {
   margin: 0;
@@ -56,11 +57,6 @@ a:not([class]) {
 img {
   max-width: 100%;
   display: block;
-}
-
-/* Указываем понятную периодичность в потоке данных у article*/
-article > * + * {
-  margin-top: 1em;
 }
 
 /* Наследуем шрифты для инпутов и кнопок */
@@ -1640,6 +1636,7 @@ li,
 figure,
 figcaption,
 blockquote,
+hr,
 dl,
 dd {
   margin: 0;
@@ -1668,11 +1665,6 @@ a:not([class]) {
 img {
   max-width: 100%;
   display: block;
-}
-
-/* Указываем понятную периодичность в потоке данных у article*/
-article > * + * {
-  margin-top: 1em;
 }
 
 /* Наследуем шрифты для инпутов и кнопок */
@@ -1709,7 +1701,6 @@ address {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0 auto;
-  width: 100%;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
@@ -2857,8 +2848,8 @@ address {
   margin-top: 10px;
 }
 .text-xl {
-  font-size: 22px;
-  line-height: 30px;
+  font-size: 20px;
+  line-height: 32px;
 }
 @media (max-width: 719px) {
   .text-xl {
@@ -2915,6 +2906,9 @@ address {
 .text-right {
   text-align: right;
 }
+.text-gray {
+  color: #555555;
+}
 @media screen and (max-width: 719px) {
   .text-xs-left {
     text-align: left !important;
@@ -2940,13 +2934,14 @@ h6,
 .h5,
 .h6 {
   font-family: "RedHatDisplay-Medium", sans-serif !important;
-  font-weight: bold;
+  font-style: normal;
+  font-weight: 500;
 }
 
 h1,
 .h1 {
-  font-size: 38px;
-  line-height: 50px;
+  font-size: 56px;
+  line-height: 70px;
 }
 @media (max-width: 719px) {
   h1,
@@ -3043,6 +3038,60 @@ h6,
   margin-right: 0;
 }
 
+.btn {
+  display: inline-block;
+  padding: 16px 30px;
+  color: white;
+  background-color: #402f2c;
+  text-decoration: none;
+}
+.btn_search {
+  padding: 8px;
+  line-height: 0;
+}
+.btn_search svg {
+  width: 16px;
+  height: 16px;
+}
+
+.form-search {
+  max-width: 326px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  padding: 8px;
+}
+
+input {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 6px 8px;
+  border: 0;
+}
+input:focus-visible {
+  outline: none;
+}
+input::-webkit-input-placeholder {
+  color: #999999;
+}
+input::-moz-placeholder {
+  color: #999999;
+}
+input:-ms-input-placeholder {
+  color: #999999;
+}
+input::-ms-input-placeholder {
+  color: #999999;
+}
+input::placeholder {
+  color: #999999;
+}
+
 .header {
   background-color: #F9F6F5;
 }
@@ -3088,9 +3137,12 @@ h6,
   }
 }
 
+.banner__header {
+  background-color: #F9F6F5;
+}
+
 .footer {
   background-color: #FAFAFA;
-  padding: 50px 0;
 }
 .footer__logo {
   font-family: "RedHatDisplay-BoldItalic", sans-serif;
@@ -3119,6 +3171,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+hr {
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1px solid #DDD;
 }
 
 .container {

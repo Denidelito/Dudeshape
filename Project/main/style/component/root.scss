@@ -1,8 +1,11 @@
 @import "./text";
 @import "./title";
 @import "./list";
+@import "./button";
+@import "./form";
 
 @import "./header";
+@import "./banner";
 @import "./footer";
 
 body {
@@ -10,6 +13,13 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+hr {
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1px solid #DDD;
 }
 
 .container {
