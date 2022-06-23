@@ -32,6 +32,7 @@ const path = {
 import fs from 'fs';
 // Gulp
 import gulp from 'gulp';
+import eslint from 'gulp-eslint';
 // сервер для работы и автоматического обновления страниц
 import sync from 'browser-sync';
 import rigger from 'gulp-rigger'; // модуль для импорта содержимого одного файла в другой
@@ -55,6 +56,14 @@ import notify from 'gulp-notify';
 
 const browserSync = sync.create();
 const sass = gulpSass(compilerSass);
+
+
+gulp.task('eslint', () => {
+    return gulp.src(path.main.js)
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError())
+});
 
 // запуск сервера
 gulp.task('browser-sync', () => {
@@ -196,6 +205,7 @@ gulp.task('watch', () => {
     gulp.watch(path.watch.html, gulp.series('html:build'));
     gulp.watch(path.watch.scss, gulp.series('css:build'));
     gulp.watch(path.watch.js, gulp.series('js:build'));
+    gulp.watch(path.watch.js, gulp.series('eslint'));
     gulp.watch(path.watch.img, gulp.series('image:build'));
     gulp.watch(path.watch.svg, gulp.series('svg:build'));
     gulp.watch(path.watch.fonts, gulp.series('fonts:build'));
@@ -205,5 +215,5 @@ gulp.task('watch', () => {
 gulp.task('default', gulp.series(
     'build',
     'creatFonts:build',
-    gulp.parallel('browser-sync','watch')
+    gulp.parallel('browser-sync', eslint, 'watch')
 ));

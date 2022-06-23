@@ -2827,3 +2827,9 @@ button {
   font-weight: 400;
   font-style: normal;
 }
+.container {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 20px;
+  margin: auto;
+}
