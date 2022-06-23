@@ -1,0 +1,30 @@
+// Grid
+$grid-columns: 12 !default;
+$grid-columns-xs: 12 !default;
+$grid-columns-lg: 24 !default;
+
+$xs-max: 719px !default;
+$lg-min: 720px !default;
+
+$gutter: 0 10px !default;
+$gutter-lg: 0 10px !default;
+$gutter-xs: 0 7.5px !default;
+
+$content-well-max-width: "none" !default;
+
+$xs-start: ($xs-max);
+$lg-start: ($lg-min);
+
+// Breakpoints
+$breakpoint-xs-only: "only screen and (max-width: #{$xs-start})";
+$breakpoint-lg-only: "only screen and (min-width: #{$lg-start})";
+
+$breakpoints-all: (
+        $breakpoint-xs-only,
+        $breakpoint-lg-only,
+);
+
+$breakpoint-all-prefixes: ("xs", "lg");
+$breakpoint-up-prefixes: ("xs", "lg");
+
+

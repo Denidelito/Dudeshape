@@ -108,7 +108,6 @@ gulp.task('js:build', () => {
         .pipe(browserSync.reload({ stream: true })) // перезагрузим сервер
 });
 
-
 // перенос шрифтов
 gulp.task('fonts:build', (f) => {
     f();

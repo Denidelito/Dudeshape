@@ -1,0 +1,24 @@
+@import "./variables";
+
+@import "./reset";
+
+// Mixins
+@import "./mixins/fonts-mixins";
+
+// margins
+@import "./margin";
+
+// border-radius
+@import "./border-radius";
+
+// Paddings
+@import "./padding";
+
+// Убираем стандартные стили
+@import "./reset";
+
+// grid
+@import "./grid";
+
+// fonts
+@import "./fonts";
