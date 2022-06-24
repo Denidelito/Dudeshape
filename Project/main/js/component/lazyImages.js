@@ -14,7 +14,7 @@ if (lazyImages.length > 0) {
 
 window.addEventListener('scroll', lazyScroll);
 
-/** Описание функции* */
+/** Проверка на загрузвку всех элементов* */
 function lazyScroll() {
     if (document.querySelectorAll('img[data-src], source[srcset]').length > 0) {
         lazyScrollCheck();
