@@ -5,6 +5,12 @@
   background-color: rgba(64, 47, 44, 1);
   text-decoration: none;
 
+  &_border {
+    color: #402F2C;
+    background-color: transparent;
+    border: 1px solid rgba(#685A52, 0.46);
+  }
+
   &_search {
     padding: 8px;
     line-height: 0;
@@ -13,5 +19,10 @@
       width: 16px;
       height: 16px;
     }
+  }
+
+
+  @media #{$breakpoint-xs-only} {
+    padding: 14px 20px;
   }
 }

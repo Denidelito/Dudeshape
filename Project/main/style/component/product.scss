@@ -1,0 +1,20 @@
+.product {
+  &-card {
+    border: 1px solid rgba(#685A52, .19);
+
+    &__content {
+      padding: 20px 32px 30px 32px;
+    }
+  }
+  @media #{$breakpoint-xs-only} {
+    &-card {
+      &__img {
+        max-height: 490px;
+        overflow: hidden;
+      }
+      &__content {
+        padding: 10px 10px 20px 10px;
+      }
+    }
+  }
+}

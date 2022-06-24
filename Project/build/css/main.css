@@ -3398,6 +3398,16 @@ address {
 .text + .text, .text + .btn {
   margin-top: 10px;
 }
+.text-xxl {
+  font-size: 24px;
+  line-height: 30px;
+}
+@media (max-width: 719px) {
+  .text-xxl {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
 .text-xl {
   font-size: 20px;
   line-height: 32px;
@@ -3448,6 +3458,9 @@ address {
     line-height: 14px;
   }
 }
+.text-medium {
+  font-family: "RedHatDisplay-Medium", sans-serif;
+}
 .text-nowrap {
   white-space: nowrap;
 }
@@ -3462,13 +3475,13 @@ address {
 }
 @media screen and (max-width: 719px) {
   .text-xs-left {
-    text-align: left !important;
+    text-align: left;
   }
   .text-xs-center {
     text-align: center;
   }
   .text-xs-right {
-    text-align: right !important;
+    text-align: right;
   }
 }
 
@@ -3596,6 +3609,11 @@ h6,
   background-color: #402f2c;
   text-decoration: none;
 }
+.btn_border {
+  color: #402F2C;
+  background-color: transparent;
+  border: 1px solid rgba(104, 90, 82, 0.46);
+}
 .btn_search {
   padding: 8px;
   line-height: 0;
@@ -3603,6 +3621,11 @@ h6,
 .btn_search svg {
   width: 16px;
   height: 16px;
+}
+@media only screen and (max-width: 719px) {
+  .btn {
+    padding: 14px 20px;
+  }
 }
 
 .form-search {
@@ -3712,6 +3735,22 @@ input::placeholder {
   margin-bottom: 0;
 }
 
+.product-card {
+  border: 1px solid rgba(104, 90, 82, 0.19);
+}
+.product-card__content {
+  padding: 20px 32px 30px 32px;
+}
+@media only screen and (max-width: 719px) {
+  .product-card__img {
+    max-height: 490px;
+    overflow: hidden;
+  }
+  .product-card__content {
+    padding: 10px 10px 20px 10px;
+  }
+}
+
 body {
   font-family: "RedHatDisplay-Regular", sans-serif;
   height: 100vh;
@@ -3739,7 +3778,25 @@ hr {
 }
 
 .link {
-  font-family: "RedHatDisplay-Regular", sans-serif;
   text-decoration: none;
   color: #222222;
+}
+.link_arrow {
+  position: relative;
+  padding-right: 32px;
+}
+.link_arrow:after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url("../img/sprite.svg#arrow-smile");
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.link_underline {
+  text-decoration: underline;
 }
