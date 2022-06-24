@@ -1,0 +1,37 @@
+.star {
+  &__container {
+    display: flex;
+  }
+
+  &__item {
+    cursor: pointer;
+    margin-right: 12px;
+    line-height: 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .icon-star {
+      transition: $transition;
+      width: 20px;
+      height: 20px;
+      fill: rgba(#FFC046, .4);
+    }
+
+    &.active {
+      cursor: default;
+
+      .icon-star {
+        fill: rgba(#FFC046, 1);
+      }
+    }
+
+    &:hover {
+      .icon-star {
+        fill: rgba(#FFC046, 1);
+      }
+    }
+  }
+}
+

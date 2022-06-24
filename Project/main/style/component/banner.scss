@@ -1,5 +1,39 @@
 .banner  {
-  &__header {
+  &-header {
     background-color: #F9F6F5;
+    position: relative;
+
+    &__nav {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 50px;
+      margin: auto;
+
+
+      @media #{$breakpoint-xs-only} {
+        bottom: 10px;
+      }
+    }
+
+    &__btn {
+      cursor: pointer;
+      line-height: 0;
+
+      svg {
+        transition: $transition;
+        width: 40px;
+        height: 40px;
+        stroke: rgba(#222222, 1);
+      }
+
+      &:hover {
+        svg {
+          stroke: rgba(#222222, 0.75);
+        }
+      }
+    }
   }
 }

@@ -1,14 +1,25 @@
 .btn {
+  cursor: pointer;
   display: inline-block;
   padding: 16px 30px;
   color: white;
+  transition: $transition;
   background-color: rgba(64, 47, 44, 1);
   text-decoration: none;
+
+  &:hover {
+    background-color: rgba(64, 47, 44, .75);
+  }
 
   &_border {
     color: #402F2C;
     background-color: transparent;
     border: 1px solid rgba(#685A52, 0.46);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(#685A52, 0.7);
+    }
   }
 
   &_search {
@@ -20,7 +31,9 @@
       height: 16px;
     }
   }
-
+  &_form {
+    padding: 10px 20px;
+  }
 
   @media #{$breakpoint-xs-only} {
     padding: 14px 20px;

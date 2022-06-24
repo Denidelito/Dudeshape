@@ -28,7 +28,7 @@ h1,
 
 h2,
 .h2 {
-    font-size: 30px;
+    font-size: 36px;
     line-height: 40px;
 
     @media (max-width: $xs-max) {
@@ -39,12 +39,12 @@ h2,
 
 h3,
 .h3 {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 30px;
+    line-height: 40px;
 
     @media (max-width: $xs-max) {
-        font-size: 18px;
-        line-height: 26px;
+        font-size: 22px;
+        line-height: 30px;
     }
 }
 
@@ -88,4 +88,12 @@ h6,
     line-height: 16px;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+
+.title {
+    &_underline {
+        display: inline-block;
+        border-bottom: 3px solid #222222;
+    }
 }

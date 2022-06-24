@@ -1,15 +1,20 @@
 const sliderBanner = () => {
-    const $sliders = $('.js-banner-slider');
+    const $banners = $('.js-banner');
 
-    $sliders.each((key, slider) => {
+    $banners.each((key, banner) => {
+        const slider = $(banner).find('.js-banner-slider');
+        const btnNext = $(banner).find('.js-btn-next');
+        const btnPrev = $(banner).find('.js-btn-prev');
+
         $(slider).slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            arrows: false,
             autoplay: true,
             fade: true,
             adaptiveHeight: true,
             autoplaySpeed: 5000,
+            nextArrow: btnNext,
+            prevArrow: btnPrev,
         });
     });
 };

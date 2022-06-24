@@ -8,6 +8,7 @@
 @import "./banner";
 @import "./footer";
 @import "./product";
+@import "./star";
 
 body {
   font-family: $Regular;
@@ -33,6 +34,7 @@ hr {
 .link {
   text-decoration: none;
   color: #222222;
+  transition: $transition;
 
   &_arrow {
     position: relative;
@@ -51,8 +53,24 @@ hr {
       margin: auto;
     }
   }
-
   &_underline {
     text-decoration: underline;
+  }
+
+  &:hover {
+    color: rgba(#222222, .75);
+  }
+}
+
+.revers {
+  transform: rotate(180deg);
+}
+
+.bg {
+  &-lactic {
+    background-color: #FDF8F5;
+  }
+  &-white {
+    background: #FAFAFA;
   }
 }
