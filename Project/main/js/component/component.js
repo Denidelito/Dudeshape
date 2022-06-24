@@ -1,1 +1,2 @@
 //= slider.js
+//= lazyImages.js

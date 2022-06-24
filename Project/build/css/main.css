@@ -147,7 +147,6 @@ a:not([class]) {
 
 /* Упрощаем работу с изображениями */
 img {
-  max-width: 100%;
   display: block;
 }
 
@@ -2188,7 +2187,6 @@ a:not([class]) {
 
 /* Упрощаем работу с изображениями */
 img {
-  max-width: 100%;
   display: block;
 }
 
@@ -3911,6 +3909,19 @@ hr {
 }
 .link:hover {
   color: rgba(34, 34, 34, 0.75);
+}
+
+.img-hidden {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url("../img/loader.gif");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .revers {
