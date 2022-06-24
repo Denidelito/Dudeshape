@@ -9,8 +9,10 @@
     "url": "https://github.com/Denidelito/Dudeshape.git"
   },
   "dependencies": {
+    "jq": "^1.7.2",
     "jquery": "3.6.0",
-    "popper.js": "1.16.1"
+    "popper.js": "1.16.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",

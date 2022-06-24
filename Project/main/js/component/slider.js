@@ -1,5 +1,3 @@
-// Импортируем компоненты
-
 const sliderBanner = () => {
     let $sliders = $('.js-banner-slider');
 

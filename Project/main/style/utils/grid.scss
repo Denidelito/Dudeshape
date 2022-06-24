@@ -35,7 +35,7 @@
 }
 
 .flex {
-    display: flex;
+    display: flex!important;
 
   @media #{$breakpoint-lg-only} {
     &-lg {

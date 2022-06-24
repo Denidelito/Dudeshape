@@ -13,6 +13,7 @@ const path = {
     main: {
         html: 'Project/main/*.html',
         js: 'Project/main/js/main.js',
+        libJs: 'Project/main/js/lib.js',
         scss: 'Project/main/style/main.scss',
         img: 'Project/main/img/**/*.*',
         svg: 'Project/main/icon/**/*.svg',
@@ -59,7 +60,7 @@ const sass = gulpSass(compilerSass);
 
 
 gulp.task('eslint', () => {
-    return gulp.src(path.main.js)
+    return gulp.src(path.build.js + 'main.js')
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError())
@@ -115,6 +116,16 @@ gulp.task('js:build', () => {
         .pipe(uglify.default()) // минимизируем js
         .pipe(gulp.dest(path.build.js)) // положим готовый файл
         .pipe(browserSync.reload({ stream: true })) // перезагрузим сервер
+});
+
+// сбор js
+gulp.task('libJs:build', () => {
+    return gulp.src(path.main.libJs) // получим файл main.js
+        .pipe(rigger()) // импортируем все указанные файлы в main.js
+        .pipe(gulp.dest(path.build.js))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify.default()) // минимизируем js
+        .pipe(gulp.dest(path.build.js)) // положим готовый файл
 });
 
 // перенос шрифтов
@@ -192,6 +203,7 @@ gulp.task('build',
         gulp.parallel(
             'html:build',
             'css:build',
+            'libJs:build',
             'js:build',
             'fonts:build',
             'image:build',
